@@ -1,20 +1,21 @@
 /*
- * Copyright 2022 Chair of EDA, Technical University of Munich
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *	 http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright 2026 Chair of EDA, Technical University of Munich
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*	 http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
-/********************* AUTO GENERATE FILE (create by Trace-Generator) *********************/
+/********************* AUTO GENERATE FILE (create by M2-ISA-R::Trace-Generator) *********************/
+
 
 #include "CV32E40P_Monitor.h"
 
@@ -35,6 +36,7 @@ extern "C"
   uint64_t *CV32E40P_Monitor_pc_buffer;
   uint64_t *CV32E40P_Monitor_brTarget_buffer;
   uint64_t *CV32E40P_Monitor_rs2_data_buffer;
+  uint64_t *CV32E40P_Monitor_branch_taken_actual_buffer;
 }
 
 extern InstructionMonitorSet* CV32E40P_InstrMonitorSet;
@@ -55,6 +57,7 @@ void CV32E40P_Monitor::connectChannel(Channel* channel_)
   CV32E40P_Monitor_pc_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("pc"));
   CV32E40P_Monitor_brTarget_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("brTarget"));
   CV32E40P_Monitor_rs2_data_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rs2_data"));
+  CV32E40P_Monitor_branch_taken_actual_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("branch_taken_actual"));
 }
 
 
@@ -71,6 +74,7 @@ std::string CV32E40P_Monitor::getBlockDeclarations(void) const
   ret_strs << "extern uint64_t *CV32E40P_Monitor_pc_buffer;\n";
   ret_strs << "extern uint64_t *CV32E40P_Monitor_brTarget_buffer;\n";
   ret_strs << "extern uint64_t *CV32E40P_Monitor_rs2_data_buffer;\n";
+  ret_strs << "extern uint64_t *CV32E40P_Monitor_branch_taken_actual_buffer;\n";
 
   return ret_strs.str();
 }
