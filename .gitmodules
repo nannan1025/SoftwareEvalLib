@@ -1,4 +1,3 @@
 [submodule "libs/backends"]
 	path = libs/backends
 	url = git@github.com:nannan1025/SoftwareEval-Backends.git
-	branch = llm_traces_bottleneck
