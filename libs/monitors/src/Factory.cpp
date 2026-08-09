@@ -31,6 +31,7 @@
 #include "CV32E40P_LLM_Monitor.h"
 #include "FIVE_NFW_NPRE_Monitor.h"
 #include "FIVE_FW_DYPRE_Monitor.h"
+#include "RC_Monitor.h"
 #include "CV32E40P_QWEN_1_Monitor.h"
 #include "CVA62_Monitor.h"
 #include "InstructionTrace_RV64_Monitor.h"
@@ -53,6 +54,7 @@ int Factory::getVariantHandle(std::string varName_)
 	if(varName_ == "CV32E40P_LLM"){ return CV32E40P_LLM; }
 	if(varName_ == "FIVE_NFW_NPRE"){ return FIVE_NFW_NPRE; }
 	if(varName_ == "FIVE_FW_DYPRE"){ return FIVE_FW_DYPRE; }
+	if(varName_ == "RC"){ return RC; }
 	if(varName_ == "CV32E40P_QWEN_1"){ return CV32E40P_QWEN_1; }
 	if(varName_ == "CVA62"){ return CVA62; }
 	if(varName_ == "InstructionTrace_RV64"){ return InstructionTrace_RV64; }
@@ -77,6 +79,7 @@ Monitor* Factory::getMonitor(int var_)
 	case CV32E40P_LLM: return new CV32E40P_LLM_Monitor();
 	case FIVE_NFW_NPRE: return new FIVE_NFW_NPRE_Monitor();
 	case FIVE_FW_DYPRE: return new FIVE_FW_DYPRE_Monitor();
+	case RC: return new RC_Monitor();
 	case CV32E40P_QWEN_1: return new CV32E40P_QWEN_1_Monitor();
 	case CVA62: return new CVA62_Monitor();
 	case InstructionTrace_RV64: return new InstructionTrace_RV64_Monitor();

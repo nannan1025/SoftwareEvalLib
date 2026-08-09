@@ -36,8 +36,6 @@ extern "C"
   uint64_t *ROCKET_Monitor_rd_buffer;
   uint64_t *ROCKET_Monitor_imm_buffer;
   uint64_t *ROCKET_Monitor_rs2_buffer;
-  uint64_t *ROCKET_Monitor_rs1_data_buffer;
-  uint64_t *ROCKET_Monitor_rs2_data_buffer;
   uint64_t *ROCKET_Monitor_addr_buffer;
 }
 
@@ -59,8 +57,6 @@ void ROCKET_Monitor::connectChannel(Channel* channel_)
   ROCKET_Monitor_rd_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rd"));
   ROCKET_Monitor_imm_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("imm"));
   ROCKET_Monitor_rs2_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rs2"));
-  ROCKET_Monitor_rs1_data_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rs1_data"));
-  ROCKET_Monitor_rs2_data_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rs2_data"));
   ROCKET_Monitor_addr_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("addr"));
 }
 
@@ -78,8 +74,6 @@ std::string ROCKET_Monitor::getBlockDeclarations(void) const
   ret_strs << "extern uint64_t *ROCKET_Monitor_rd_buffer;\n";
   ret_strs << "extern uint64_t *ROCKET_Monitor_imm_buffer;\n";
   ret_strs << "extern uint64_t *ROCKET_Monitor_rs2_buffer;\n";
-  ret_strs << "extern uint64_t *ROCKET_Monitor_rs1_data_buffer;\n";
-  ret_strs << "extern uint64_t *ROCKET_Monitor_rs2_data_buffer;\n";
   ret_strs << "extern uint64_t *ROCKET_Monitor_addr_buffer;\n";
 
   return ret_strs.str();

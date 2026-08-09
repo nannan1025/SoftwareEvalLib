@@ -1,0 +1,10 @@
+
+TARGET_SOURCES(SWEVAL_MONITORS_LIB PRIVATE
+  	src/RC_Monitor.cpp
+	src/RC_InstructionMonitors.cpp
+
+)
+
+TARGET_INCLUDE_DIRECTORIES(SWEVAL_MONITORS_LIB PRIVATE
+include
+)
